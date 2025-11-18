@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Velo"
 include(":velo-core")
+include(":velo-android")
