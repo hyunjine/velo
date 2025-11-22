@@ -29,8 +29,8 @@ jobs:
         run: |
           gpg --batch --import private.key
 
-#      - name: Grant execute permission for gradlew
-#        run: chmod +x gradlew
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
       - name: Build & Publish
         run: ./gradlew publishAll --no-daemon
         env:
