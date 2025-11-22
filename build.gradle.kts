@@ -4,4 +4,12 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.vanniktech) apply false
+}
+
+tasks.register("publishAll") {
+    dependsOn(
+        ":velo-core:publishAndReleaseToMavenCentral",
+        ":velo-android:publishAndReleaseToMavenCentral",
+    )
 }
