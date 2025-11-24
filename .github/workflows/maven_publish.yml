@@ -19,6 +19,12 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+      - name: Debug env
+        run: |
+          echo "ID=$SIGNING_KEY"
+          echo "FILE exists?"
+          test -f $SIGNING_SECRET_KEY_RING_FILE && echo "YES" || echo "NO"
+
       - name: Decode GPG Key
         run: |
           echo "$SIGNING_KEY" > private.key
