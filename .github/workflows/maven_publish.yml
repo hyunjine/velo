@@ -19,11 +19,22 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Debug env
+      - name: Set up signing config
         run: |
-          echo "ID=$SIGNING_KEY"
-          echo "FILE exists?"
-          test -f $SIGNING_SECRET_KEY_RING_FILE && echo "YES" || echo "NO"
+          echo "mavenCentralUsername=${OSSRH_USERNAME}" >> ~/.gradle/gradle.properties
+          echo "mavenCentralPassword=${OSSRH_PASSWORD}" >> ~/.gradle/gradle.properties
+          echo "signing.keyId=${SIGNING_KEY_ID}" >> ~/.gradle/gradle.properties
+          echo "signing.password=${SIGNING_PASSWORD}" >> ~/.gradle/gradle.properties
+          
+          echo "${SIGNING_KEY}" | base64 --decode > ~/.gradle/secring.gpg
+          echo "signing.secretKeyRingFile=$(echo ~/.gradle/secring.gpg)" >> ~/.gradle/gradle.properties
+
+        env:
+          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+          SIGNING_KEY_ID: ${{ secrets.SIGNING_KEY_ID }}
+          SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
+          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
 
       - name: Decode GPG Key
         run: |
