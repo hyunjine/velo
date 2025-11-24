@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.vanniktech)
+    id("signing")
 }
 
 mavenPublishing {
@@ -15,8 +16,8 @@ mavenPublishing {
 
     val groupId = "io.github.hyunjine"
     val artifactId = project.name
-    val version = rootProject.extra["VERSION_NAME"].toString()
-    coordinates(groupId = groupId, artifactId = artifactId, version = version)
+    val libraryVersion: String by project
+    coordinates(groupId = groupId, artifactId = artifactId, version = libraryVersion)
 
     pom {
         name.set(project.name)
@@ -45,6 +46,13 @@ mavenPublishing {
             url.set("https://github.com/hyunjine/velo")
         }
     }
+}
+
+signing {
+    useInMemoryPgpKeys(
+        findProperty("signingKey") as String?,
+        findProperty("signingPassword") as String?
+    )
 }
 
 android {
