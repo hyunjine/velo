@@ -21,13 +21,13 @@ jobs:
 
       - name: Set up signing config
         run: |
-          echo "mavenCentralUsername=${OSSRH_USERNAME}" >> ~/.gradle/gradle.properties
-          echo "mavenCentralPassword=${OSSRH_PASSWORD}" >> ~/.gradle/gradle.properties
-          echo "signing.keyId=${SIGNING_KEY_ID}" >> ~/.gradle/gradle.properties
-          echo "signing.password=${SIGNING_PASSWORD}" >> ~/.gradle/gradle.properties
-          
-          echo "${SIGNING_KEY}" | base64 --decode > ~/.gradle/secring.gpg
-          echo "signing.secretKeyRingFile=$(echo ~/.gradle/secring.gpg)" >> ~/.gradle/gradle.properties
+          echo "mavenCentralUsername=${OSSRH_USERNAME}" >> gradle.properties
+          echo "mavenCentralPassword=${OSSRH_PASSWORD}" >> gradle.properties
+          echo "signing.keyId=${SIGNING_KEY_ID}" >> gradle.properties
+          echo "signing.password=${SIGNING_PASSWORD}" >> gradle.properties
+      
+          echo "${SIGNING_KEY}" | base64 --decode > secring.gpg
+          echo "signing.secretKeyRingFile=$(pwd)/secring.gpg" >> gradle.properties
 
         env:
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
