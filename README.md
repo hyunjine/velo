@@ -52,6 +52,7 @@ fun VeloImage(
 - contentScale : Yes. It is androidx.compose.ui.layout.ContentScale you know.
 
 ### ImageRequest
+You can request options with chaining. Like Modifier, if same level option was registed, the target is last option.
 - **componentSize()** : Default option. It automatically measure VeloImage size and resize the downloaded image to measured layout(widht, height).
 ```kotlin
 VeloImage(
