@@ -88,7 +88,7 @@ VeloImage(
 )
 ```
 
-- **useMemoryCache(enabled: Boolean)** : Whether turn on memory cache option. If enabled is true, use memory cache.
+- **useMemoryCache(enabled: Boolean)** : Default true. Whether turn on memory cache option. If enabled is true, use memory cache.
 ```kotlin
 VeloImage(
   imageRequest = ImageRequest
@@ -97,7 +97,7 @@ VeloImage(
 )
 ```
 
-- **useDiskCache(enabled: Boolean)** : Whether turn on disk cache option. If enabled is true, use memory cache.
+- **useDiskCache(enabled: Boolean)** : Default true. Whether turn on disk cache option. If enabled is true, use memory cache.
 ```kotlin
 VeloImage(
   imageRequest = ImageRequest
