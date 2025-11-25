@@ -24,7 +24,7 @@ dependencies {
 
 ## Usage
 ### VeloImage
-VeloImage is Composable funcion to render image through url. Think about [AsyncImage](https://github.com/coil-kt/coil).
+VeloImage is Composable funcion to render image through url. It's similar to [AsyncImage](https://github.com/coil-kt/coil).
 
 ```kotlin
 @Composable
