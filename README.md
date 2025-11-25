@@ -70,7 +70,7 @@ VeloImage(
 )
 ```
 
-- **size(width: Int, height: Int)** : Resize as pixel Unit.
+- **size(width: Int, height: Int)** : Resize as pixel unit.
 ```kotlin
 VeloImage(
   imageRequest = ImageRequest
@@ -79,7 +79,7 @@ VeloImage(
 )
 ```
 
-- @Composable **size(width: Dp, height: Dp)** : Resize as dp Unit.
+- @Composable **size(width: Dp, height: Dp)** : Resize as dp unit.
 ```kotlin
 VeloImage(
   imageRequest = ImageRequest
@@ -97,7 +97,7 @@ VeloImage(
 )
 ```
 
-- **useDiskCache(enabled: Boolean)** : Default true. Whether turn on disk cache option. If enabled is true, use memory cache.
+- **useDiskCache(enabled: Boolean)** : Default true. Whether turn on disk cache option. If enabled is true, use disk cache.
 ```kotlin
 VeloImage(
   imageRequest = ImageRequest
