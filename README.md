@@ -49,7 +49,7 @@ fun VeloImage(
 - **onSuccess** : It will be called when the url is be transformed to a bitmap with successful.
 - **onError** : It will be called when the error occur processing from url to bitmap.
 - **error** : If the condition is onError called, you can replace empty with this.
-- contentScale : Yes. It is androidx.compose.ui.layout.ContentScale you know.
+- **contentScale** : Yes. It is androidx.compose.ui.layout.ContentScale you know.
 
 ### ImageRequest
 You can request options with chaining. Like Modifier, if same level option was registed, the target is last option.
