@@ -1,15 +1,18 @@
 name: Publish to Maven Central
-# ./gradlew :velo-core:tasks --all | grep publish
+
 on:
   push:
-    branches:
-      - release
-
+    tags:
+      - 'v*.*.*'
+      -
 jobs:
   release:
     runs-on: ubuntu-latest
     environment: Maven Central
     steps:
+      - name: Print Maven Central env
+        run: |
+          echo "Maven Central Username: ${{ secrets.MAVEN_CENTRAL_USERNAME }}"
       - name: Checkout
         uses: actions/checkout@v4
 
